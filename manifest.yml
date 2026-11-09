@@ -1,0 +1,22 @@
+# Run 'forge register' before deploying; the placeholder ID is intentionally invalid.
+modules:
+  jira:projectPage:
+    - key: shipproof-release-assessment
+      resource: main
+      resolver:
+        function: resolver
+      render: native
+      title: ShipProof
+  function:
+    - key: resolver
+      handler: src/resolvers/index.handler
+resources:
+  - key: main
+    path: src/frontend/index.jsx
+permissions:
+  scopes:
+    - read:jira-work
+app:
+  id: ari:cloud:ecosystem::app/00000000-0000-0000-0000-000000000000
+  runtime:
+    name: nodejs22.x
